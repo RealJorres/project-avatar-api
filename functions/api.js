@@ -4,12 +4,13 @@ const Chance = require("chance")
 const cors = require("cors");
 
 
-const corsOptions = {
-    origin: "https://relatorres-avatar-codex.netlify.app/",
-};
+// const corsOptions = {
+//     origin: "https://relatorres-avatar-codex.netlify.app/",
+// };
 
 const app = express();
-app.use(cors(corsOptions));
+app.use(cors());
+
 const router = express.Router();
 // create dummy data
 const chance = new Chance();
