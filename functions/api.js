@@ -18,9 +18,9 @@ const users = [...Array(250).keys()].map((id)=>{
 });
 
 router.get("/", (req, res)=>{
-    res.json({
-        users
-    });
+    const q = req.query.q?.toLocaleLowerCase() || '';
+    const results = users.filter((user)=>user.name.toLowerCase().includes(q));
+    res.send(results)
 });
 
 app.use('/.netlify/functions/api', router);
